@@ -25,6 +25,7 @@ const appConfig = {
   appID: 0, // The AppID you get from ZEGOCLOUD Admin Console.
   serverSecret: '', // The ServerSecret you get from ZEGOCLOUD Admin Console.
 };
+export default appConfig;
 ```
 
 2. In Terminal, use the cd command to navigate to the `Samples/ZIMKitDemo` directory, and run the following command in order to run the sample code.
