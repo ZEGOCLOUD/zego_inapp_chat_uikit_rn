@@ -1,48 +1,52 @@
-## Overview
+# Overview
 
-The following describe how to run the sample code of the In-app Chat UIKit.
+---
 
-## Prerequisites
+In-app Chat UIKit is a UI component library based on the In-app Chat SDK. It provides general UI components, such as the session list, one-on-one chat, and group chat. You can use In-app Chat UIKit to quickly build custom IM applications based on actual business requirements.
 
-- Go to [ZEGOCLOUD Admin Console\|\_blank](https://console.zegocloud.com/) and do the following:
+In addition to implementing UI features, components of In-app Chat UIKit can call related API methods of the In-app Chat SDK to implement logic and data processing related to the In-app Chat. With this In-app Chat UIKit, you only need to focus on the business logic or personalized extension.
 
-  1.  Create a project, and get the `AppID` and `ServerSecret` of your project.
-  2.  Subscribe to the **In-app Chat** service (Contact technical support if the subscript doesn’t go well).
+## Features
 
-<img src="https://storage.zego.im/sdk-doc/Pics/InappChat/ActivateZIMinConsole2.png">
+In-app Chat UIKit supports the following features:
 
-- Platform-specific requirements:
-  - Chrome 58 or later.
-  - Node.js 14.18.1 or later
-  - The device is connected to the internet.
+- Create one-on-one chats or group chats and join group chats.
+- Chat with others through one-to-one or group messages.
+- Send text messages.
+- Send rich media messages, such as images, voice messages, videos, and files.
+- Select multiple messages and delete messages.
 
-## Run the sample code (React)
+## Supported platforms
 
-1. Download the sample code, open the `keyCenter.ts` file under the `Samples/ZIMKitDemo/src` directory using VSCode (or other programming software), and fill in the `appID` and `serverSecret` you get from the ZEGOCLOUD Admin Console.
+In-app Chat UIKit can be used on Android, iOS, and Web client apps.
 
-```javascript
-const appConfig = {
-  appID: 0, // The AppID you get from ZEGOCLOUD Admin Console.
-  serverSecret: '', // The ServerSecret you get from ZEGOCLOUD Admin Console.
-};
-export default appConfig;
-```
+## Advantages
 
-2. In Terminal, use the cd command to navigate to the `Samples/ZIMKitDemo` directory, and run the following command in order to run the sample code.
+| Advantage                               | Description                                                                                                                                                                                                                                                                           |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UI component decoupling                 | Components of In-app Chat UIKit can run independently. You can select and integrate components into your app as required to implement related UI features and reduce useless dependencies.                                                                                            |
+| Simple and easy-to-use UI capabilities  | The business logic layer and UI layer of In-app Chat UIKit are independent of each other. At the UI layer, you only need to focus on view display and event processing. Clear data forwarding and processing of In-app Chat UIKit ensure simple and easy-to-use code at the UI layer. |
+| Comprehensive business logic processing | The business logic layer of In-app Chat UIKit provides comprehensive business logic processing capability. You do not need to care about complex processing logic between different APIs at the SDK layer. One API at the business logic layer can help you handle the SDK layer.     |
 
-```bash
-    npm install # Install dependencies.
-    npm start   # After installing the dependencies, execute this to run the project.
-```
+## Component effect
 
-Congratulations! So far, you have finished all the steps, and this is what you gonna see when the sample code is run successfully:
+**Session list page (session component)**
 
-<img src="https://storage.zego.im/sdk-doc/Pics/ZIMKit/Web/zimkit_login.png" width="80%">
+<img src="https://storage.zego.im/sdk-doc/Pics/ZIMKit/ZIMLKit_image1_EN.png" width="20%">
 
-## More to explore
+- **One-on-one chat page (message component)**
+
+<img src="https://storage.zego.im/sdk-doc/Pics/ZIMKit/ZIMLKit_image2_EN.png" width="20%">
+
+- **Group chat page (message component)**
+
+<img src="https://storage.zego.im/sdk-doc/Pics/ZIMKit/ZIMLKit_image3_EN.png" width="20%">
+
+## Recommended guides
 
 - To get started swiftly, follow the steps in this doc: [Integrate the SDK](https://docs.zegocloud.com/article/15528)
 - To explore more customizable components, check this out: [Component overview](https://docs.zegocloud.com/article/15573)
+- To check and run the sample code, click here: [Run the sample code](https://docs.zegocloud.com/article/15538)
 
 ## Get support
 
