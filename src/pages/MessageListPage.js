@@ -9,7 +9,9 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import MessageInput from '../components/MessageInput';
-import { useState } from 'react';
+import React, { useState } from 'react';
+// import ZIMKitPlugins from "../services/internal/ZIMKitPlugins";
+import Delegate from 'react-delegate-component';
 
 function MessageListPage(props) {
   const { route } = props;
@@ -24,7 +26,14 @@ function MessageListPage(props) {
     preMessageSending,
     appBarActions,
   } = params;
+
   const [isInputFocus, setIsInputFocus] = useState(false);
+
+  // let ZegoSendCallInvitationButton;
+  // const ZegoPrebuiltCallPlugin = ZIMKitPlugins.getInstance().getZegoPrebuiltCallPlugin();
+  // if (ZegoPrebuiltCallPlugin) {
+  //   ZegoSendCallInvitationButton = ZegoPrebuiltCallPlugin.ZegoSendCallInvitationButton;
+  // }
 
   const onInputFocus = () => {
     setIsInputFocus(true);
@@ -61,6 +70,18 @@ function MessageListPage(props) {
               : 'Group Chat'
           }(${conversationID})`}
         </Text>
+        <View style={style.callContainer}>
+          {
+            params.appBarActions[1] ? <View style={style.audioCall}>
+              <Delegate to={params.appBarActions[1]}></Delegate>
+            </View> : null
+          }
+          {
+            params.appBarActions[2] ? <View style={style.videoCall}>
+              <Delegate to={params.appBarActions[2]}></Delegate>
+            </View> : null
+          }
+        </View>
       </View>
       <KeyboardAvoidingView
         behavior={Platform.OS == 'ios' ? 'padding' : null}
@@ -112,6 +133,21 @@ const style = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     lineHeight: 50,
+  },
+  callContainer: {
+    zIndex: 1,
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
+  },
+  audioCall: {
+    marginRight: 5,
+  },
+  videoCall: {
+    marginRight: 5,
   },
 });
 export default MessageListPage;

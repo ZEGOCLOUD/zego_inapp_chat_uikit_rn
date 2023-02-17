@@ -6,8 +6,8 @@ import {
   TouchableWithoutFeedback,
   Platform,
 } from 'react-native';
-import { useState, useEffect } from 'react';
-import ZIMKit from '../services';
+import React, { useState, useEffect } from 'react';
+import { ZIMKit } from '../index';
 
 function MessageInput(props) {
   const {
@@ -23,18 +23,14 @@ function MessageInput(props) {
   const [textInputHeight, setTextInputHeight] = useState(0);
 
   useEffect(() => {
-    ZIMKit.getInstance().onPreMessageSending(preMessageSending);
+    ZIMKit.onPreMessageSending(preMessageSending);
   }, []);
 
   const sendMessage = () => {
     if (value) {
       onChangeText('');
       setTextInputHeight(defaultInputHeight);
-      ZIMKit.getInstance().sendTextMessage(
-        conversationID,
-        conversationType,
-        value
-      );
+      ZIMKit.sendTextMessage(conversationID, conversationType, value);
     }
   };
 

@@ -1,5 +1,5 @@
 const appConfig = {
-  appID: 0,
+  appID: ,
   appSign: '',
 };
 export default appConfig;

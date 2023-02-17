@@ -1,4 +1,5 @@
 import { StyleSheet, View, Text } from 'react-native';
+import React from 'react';
 function TextMessages(props) {
   const { text, backgroundColor, color } = props;
   return (

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:bundle">
-   </FileRef>
-   <FileRef
       location = "group:ZimkitRnExample.xcodeproj">
    </FileRef>
    <FileRef

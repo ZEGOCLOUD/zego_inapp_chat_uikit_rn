@@ -2,8 +2,8 @@ import { StyleSheet, View, Text, ActivityIndicator, Image } from 'react-native';
 import TextMessage from './TextMessage';
 import Avatar from '../common/Avatar';
 import { dateFormat } from '../../utils/dateFormat';
-import { useEffect, useState } from 'react';
-import ZIMKit from '../../services';
+import React, { useEffect, useState } from 'react';
+import { ZIMKit } from '../../index';
 import Delegate from 'react-delegate-component';
 
 function Messages(props) {
@@ -20,7 +20,7 @@ function Messages(props) {
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    setCurrentUser(ZIMKit.getInstance().currentUser());
+    setCurrentUser(ZIMKit.currentUser());
     setTime(messageDateFormat(timestamp, index));
   }, []);
 

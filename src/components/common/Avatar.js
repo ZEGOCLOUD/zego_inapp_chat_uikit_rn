@@ -1,5 +1,5 @@
 import { StyleSheet, View, Image } from 'react-native';
-import { useEffect } from 'react';
+import React from 'react';
 
 function Avatar(props) {
   const { url } = props;

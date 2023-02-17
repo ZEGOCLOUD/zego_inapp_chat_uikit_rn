@@ -22,33 +22,32 @@ function GroupChatDialog(props) {
   }, [dialogVisible]);
 
   const onConfirmPress = () => {
-    if (groupName && userIDs) {
+    if (groupName) {
       onDialogVisibleChanged(false);
       const userIDsArr = userIDs.split(';');
-      ZIMKit.getInstance()
-        .createGroup(groupName, userIDsArr)
-        .then((data) => {
-          if (!data.code) {
-            const { groupInfo, errorUserList } = data;
-            const { baseInfo } = groupInfo;
-            // if (errorUserList.length) {
-            // } else {
-            navigation.navigate('MessageListPage', {
-              conversationID: baseInfo.groupID,
-              conversationName: baseInfo.groupName,
-              conversationType: 2,
-              appBarActions: [
-                {
-                  icon: 'goBack',
-                  onPressed: () => {
-                    navigation.goBack();
-                  },
+      // const optional = { groupID: ''};
+      ZIMKit.createGroup(groupName, userIDsArr).then((data) => {
+        if (!data.code) {
+          const { groupInfo, errorUserList } = data;
+          const { baseInfo } = groupInfo;
+          // if (errorUserList.length) {
+          // } else {
+          navigation.navigate('MessageListPage', {
+            conversationID: baseInfo.groupID,
+            conversationName: baseInfo.groupName,
+            conversationType: 2,
+            appBarActions: [
+              {
+                icon: 'goBack',
+                onPressed: () => {
+                  navigation.goBack();
                 },
-              ],
-            });
-            // }
-          }
-        });
+              },
+            ],
+          });
+          // }
+        }
+      });
     }
   };
 

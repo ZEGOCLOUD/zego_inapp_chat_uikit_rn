@@ -14,8 +14,11 @@ export default class ZIMKit {
     }
     return ZIMKit.instance;
   }
-  init(appID, appSign) {
-    return ZIMKitCore.getInstance().init(appID, appSign);
+  getModuleName() {
+    return 'ZIMKit';
+  }
+  init(appID, appSign, plugins) {
+    return ZIMKitCore.getInstance().init(appID, appSign, plugins);
   }
   unInit() {
     ZIMKitCore.getInstance().unInit();

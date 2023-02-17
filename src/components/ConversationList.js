@@ -6,9 +6,9 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import Conversation from './Conversation';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Delegate from 'react-delegate-component';
-import ZIMKit from '../services/index';
+import { ZIMKit } from '../index';
 import ZIMKitConversationCore from '../services/internal/ZIMKitConversationCore';
 
 function ConversationList(props) {
@@ -42,25 +42,23 @@ function ConversationList(props) {
 
   useEffect(() => {
     setIsLoading(true);
-    ZIMKit.getInstance()
-      .getConversationList()
-      .then((data) => {
-        setIsLoading(false);
-        if (!data.code) {
-          let sortedList = [];
-          if (sorter) {
-            sortedList = sorter(data);
-          } else {
-            sortedList = defaultSorter(data);
-          }
-          setConversationList(sortedList);
-          setHasError(false);
+    ZIMKit.getConversationList().then((data) => {
+      setIsLoading(false);
+      if (!data.code) {
+        let sortedList = [];
+        if (sorter) {
+          sortedList = sorter(data);
         } else {
-          setHasError(true);
+          sortedList = defaultSorter(data);
         }
-      });
+        setConversationList(sortedList);
+        setHasError(false);
+      } else {
+        setHasError(true);
+      }
+    });
 
-    ZIMKit.getInstance().onConversationListChanged((conversationList) => {
+    ZIMKit.onConversationListChanged((conversationList) => {
       const data = [...conversationList];
       let sortedList = [];
       if (sorter) {
@@ -113,7 +111,7 @@ function ConversationList(props) {
 
   const onScrollToEnd = () => {
     if (conversationList.length >= 20) {
-      ZIMKit.getInstance().loadMoreConversation();
+      ZIMKit.loadMoreConversation();
     }
   };
 

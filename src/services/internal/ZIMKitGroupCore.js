@@ -7,7 +7,7 @@ export default class ZIMKitGroupCore {
   }
   createGroup(name, userIDs, optional) {
     const groupInfo = {
-      groupID: optional ? optional.id : '',
+      groupID: optional ? optional.groupID : '',
       groupName: name,
       groupAvatarUrl: '',
     };

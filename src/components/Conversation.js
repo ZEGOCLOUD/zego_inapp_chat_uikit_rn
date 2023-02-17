@@ -11,8 +11,8 @@ import {
 import Delegate from 'react-delegate-component';
 import Avatar from './common/Avatar';
 import { dateFormat } from '../utils/dateFormat';
-import { useState } from 'react';
-import ZIMKit from '../services/index';
+import { ZIMKit } from '../index';
+import React, { useState } from 'react';
 
 function Conversation(props) {
   const {
@@ -53,10 +53,7 @@ function Conversation(props) {
         text: 'OK',
         onPress: () => {
           console.log('OK Pressed');
-          ZIMKit.getInstance().deleteConversation(
-            conversationID,
-            conversationType
-          );
+          ZIMKit.deleteConversation(conversationID, conversationType);
         },
       },
     ]);
@@ -74,7 +71,7 @@ function Conversation(props) {
         text: 'OK',
         onPress: () => {
           console.log('OK Pressed');
-          ZIMKit.getInstance().leaveGroup(conversationID);
+          ZIMKit.leaveGroup(conversationID);
         },
       },
     ]);
@@ -86,7 +83,7 @@ function Conversation(props) {
   };
 
   const onConversationPressed = () => {
-    ZIMKit.getInstance().clearUnreadCount(conversationID, conversationType);
+    ZIMKit.clearUnreadCount(conversationID, conversationType);
     const props = {
       conversationID,
       conversationName,

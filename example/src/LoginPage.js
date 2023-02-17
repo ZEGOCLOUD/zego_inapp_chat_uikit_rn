@@ -4,14 +4,17 @@ import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { randomName } from './utils';
 import { ZIMKit } from '@zegocloud/zimkit-rn';
+import * as ZIM from 'zego-zim-react-native';
 import appConfig from './KeyCenter';
+// import * as ZegoUIKitPrebuiltCallPlugin from "@zegocloud/zego-uikit-prebuilt-call-rn";
+import ZegoUIKitPrebuiltCallService from "@zegocloud/zego-uikit-prebuilt-call-rn";
 
 export default function LoginPage(props) {
   const insets = useSafeAreaInsets();
   const [userID, setUserID] = useState('');
   const [userName, setUserName] = useState('');
   useEffect(() => {
-    ZIMKit.getInstance().init(appConfig.appID, appConfig.appSign);
+    ZIMKit.init(appConfig.appID, appConfig.appSign);
     reload();
   }, []);
   const reload = () => {
@@ -20,17 +23,24 @@ export default function LoginPage(props) {
   };
   const navigation = useNavigation();
   const login = () => {
-    ZIMKit.getInstance()
-      .connectUser({ userID, userName }, '')
-      .then((data) => {
-        // sdk failed callback is [Error: login failed], no code.
-        if (data === userID) {
-          navigation.navigate('HomePage', {
-            userID,
-            userName,
-          });
-        }
-      });
+    ZIMKit.connectUser({ userID, userName }, '').then((data) => {
+      // sdk failed callback is [Error: login failed], no code.
+      if (data === userID) {
+        ZegoUIKitPrebuiltCallService.init(
+          appConfig.appID,
+          appConfig.appSign,
+          userID,
+          userName,
+          [ZIM],
+        ).then(() => {
+          console.log('init success!');
+        });
+        navigation.navigate('HomePage', {
+          userID,
+          userName,
+        });
+      }
+    });
   };
   return (
     <View

@@ -4,6 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginPage from './LoginPage';
 import HomePage from './HomePage';
 import { MessageListPage } from '@zegocloud/zimkit-rn';
+import {
+  ZegoUIKitPrebuiltCallWaitingScreen,
+  ZegoUIKitPrebuiltCallInCallScreen,
+} from '@zegocloud/zego-uikit-prebuilt-call-rn';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +47,18 @@ export default function AppNavigation(props) {
         options={{ headerShown: false }}
         name="MessageListPage"
         component={MessageListPage}
+      />
+      <Stack.Screen
+          options={{ headerShown: false }}
+          // DO NOT change the name 
+          name="ZegoUIKitPrebuiltCallWaitingScreen"
+          component={ZegoUIKitPrebuiltCallWaitingScreen}
+      />
+      <Stack.Screen
+          options={{ headerShown: false }}
+          // DO NOT change the name
+          name="ZegoUIKitPrebuiltCallInCallScreen"
+          component={ZegoUIKitPrebuiltCallInCallScreen}
       />
     </Stack.Navigator>
   );

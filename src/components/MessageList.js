@@ -5,8 +5,8 @@ import {
   Text,
   ActivityIndicator,
 } from 'react-native';
-import ZIMKit from '../services/index';
-import { useEffect, useState, useRef } from 'react';
+import { ZIMKit } from '../index';
+import React, { useEffect, useState, useRef } from 'react';
 import Messages from './messages/Messages';
 import Delegate from 'react-delegate-component';
 
@@ -36,33 +36,31 @@ function MessageList(props) {
 
   useEffect(() => {
     setIsLoading(true);
-    ZIMKit.getInstance()
-      .getMessageList(conversationID, conversationType)
-      .then((data) => {
-        setIsLoading(false);
-        if (!data.code) {
-          data.sort((a, b) => a.orderKey - b.orderKey);
-          setMessageList(data);
-          // scroll to end
-          setTimeout(() => {
-            flatListRef.current?.scrollToEnd();
-          }, 200);
-          setHasError(false);
-          if (conversationType === 2) {
-            getGroupMemberInfoList(data);
-          }
-        } else {
-          console.log('get message list err', data);
-          setHasError(true);
+    ZIMKit.getMessageList(conversationID, conversationType).then((data) => {
+      setIsLoading(false);
+      if (!data.code) {
+        data.sort((a, b) => a.orderKey - b.orderKey);
+        setMessageList(data);
+        // scroll to end
+        setTimeout(() => {
+          flatListRef.current?.scrollToEnd();
+        }, 200);
+        setHasError(false);
+        if (conversationType === 2) {
+          getGroupMemberInfoList(data);
         }
-      });
-    ZIMKit.getInstance().onMessageListChanged((id, type, messageList) => {
+      } else {
+        console.log('get message list err', data);
+        setHasError(true);
+      }
+    });
+    ZIMKit.onMessageListChanged((id, type, messageList) => {
       if (conversationID === id && conversationType === type) {
         const data = [...messageList];
         data.sort((a, b) => a.orderKey - b.orderKey);
         setMessageList(data);
         // clear unread count
-        ZIMKit.getInstance().clearUnreadCount(id, type);
+        ZIMKit.clearUnreadCount(id, type);
         // scroll to end
         setTimeout(() => {
           flatListRef.current?.scrollToEnd();
@@ -74,7 +72,7 @@ function MessageList(props) {
     });
     return () => {
       // clear subscription
-      ZIMKit.getInstance().offMessageListChanged();
+      ZIMKit.offMessageListChanged();
     };
   }, []);
 
@@ -86,33 +84,29 @@ function MessageList(props) {
       }
     });
     memberIDs.forEach(async (id, index) => {
-      await ZIMKit.getInstance()
-        .queryGroupMemberInfo(id, conversationID)
-        .then((data) => {
-          groupMemberInfoList.push(data.userInfo);
-          messageList.forEach((msg) => {
-            if (msg.senderUserID === id) {
-              msg.userInfo = data.userInfo;
-            }
-          });
-          setMessageList([...messageList]);
+      await ZIMKit.queryGroupMemberInfo(id, conversationID).then((data) => {
+        groupMemberInfoList.push(data.userInfo);
+        messageList.forEach((msg) => {
+          if (msg.senderUserID === id) {
+            msg.userInfo = data.userInfo;
+          }
         });
+        setMessageList([...messageList]);
+      });
     });
   };
 
   const refresh = () => {
     setIsRefreshing(true);
-    ZIMKit.getInstance()
-      .loadMoreMessage(conversationID, conversationType)
-      .then((data) => {
-        if (!data.code) {
-          data.sort((a, b) => a.orderKey - b.orderKey);
-          setMessageList(data);
-          setIsRefreshing(false);
-        } else {
-          console.log('load more message', data);
-        }
-      });
+    ZIMKit.loadMoreMessage(conversationID, conversationType).then((data) => {
+      if (!data.code) {
+        data.sort((a, b) => a.orderKey - b.orderKey);
+        setMessageList(data);
+        setIsRefreshing(false);
+      } else {
+        console.log('load more message', data);
+      }
+    });
   };
 
   const defaultLoadingBuilder = () => {

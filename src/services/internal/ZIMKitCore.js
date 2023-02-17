@@ -4,18 +4,22 @@ import ZIMKitUserCore from './ZIMKitUserCore';
 import ZIMKitConversationCore from './ZIMKitConversationCore';
 import ZIMKitMessageCore from './ZIMKitMessageCore';
 import ZIMKitGroupCore from './ZIMKitGroupCore';
+import ZIMKitPlugins from './ZIMKitPlugins';
 
 export default class ZIMKitCore {
   constructor() {}
+  appInfo = {};
   static getInstance() {
     return this.instance || (this.instance = new ZIMKitCore());
   }
-  init(appID, appSign) {
+  init(appID, appSign, plugins) {
+    this.appInfo = { appID, appSign };
     ZIM.create({ appID, appSign });
     ZIM.getVersion().then((data) => {
       console.log('zim version:', data);
     });
     ZIMKitEventHandler.getInstance().initEventHandler();
+    ZIMKitPlugins.getInstance().installPlugins(plugins);
   }
   unInit() {
     ZIM.getInstance().destroy();
@@ -24,7 +28,14 @@ export default class ZIMKitCore {
 
   // user
   connectUser(userInfo, token) {
-    return ZIMKitUserCore.getInstance().connectUser(userInfo, token);
+    return ZIMKitUserCore.getInstance().connectUser(userInfo, token).then((zimResult) => {
+      // try {
+      //   ZIMKitPlugins.getInstance().initPlugins(this.appInfo, userInfo, token);
+      // } catch (error) {
+      //   console.error('initPlugins failed', error);
+      // }
+      return zimResult;
+    });
   }
   disconnectUser() {
     return ZIMKitUserCore.getInstance().disconnectUser();

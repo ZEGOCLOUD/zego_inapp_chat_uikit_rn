@@ -22,25 +22,23 @@ function JoinGroupChatDialog(props) {
   const onConfirmPress = () => {
     if (groupID) {
       onDialogVisibleChanged(false);
-      ZIMKit.getInstance()
-        .joinGroup(groupID)
-        .then((data) => {
-          if (!data.code) {
-            navigation.navigate('MessageListPage', {
-              conversationID: data.groupInfo.baseInfo.groupID,
-              conversationName: data.groupInfo.baseInfo.groupName,
-              conversationType: 2,
-              appBarActions: [
-                {
-                  icon: 'goBack',
-                  onPressed: () => {
-                    navigation.goBack();
-                  },
+      ZIMKit.joinGroup(groupID).then((data) => {
+        if (!data.code) {
+          navigation.navigate('MessageListPage', {
+            conversationID: data.groupInfo.baseInfo.groupID,
+            conversationName: data.groupInfo.baseInfo.groupName,
+            conversationType: 2,
+            appBarActions: [
+              {
+                icon: 'goBack',
+                onPressed: () => {
+                  navigation.goBack();
                 },
-              ],
-            });
-          }
-        });
+              },
+            ],
+          });
+        }
+      });
     }
   };
 
