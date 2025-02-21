@@ -117,7 +117,7 @@ function ConversationList(props) {
 
   const renderItem = ({ item }) =>
     itemBuilder ? (
-      <Delegate to={itemBuilder}></Delegate>
+      <Delegate to={itemBuilder} props={{item}}></Delegate>
     ) : (
       <Conversation
         conversationID={item.conversationID}
