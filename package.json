@@ -1,6 +1,6 @@
 {
   "name": "@zegocloud/zimkit-rn",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "zimkit for rn",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -15,12 +15,16 @@
     "cpp",
     "*.podspec",
     "!lib/typescript/example",
-    "!ios/build",
+    "!android/.editorconfig",
+    "!android/.gradle",
+    "!android/.idea",
+    "!android/.settings",
     "!android/build",
     "!android/gradle",
     "!android/gradlew",
     "!android/gradlew.bat",
     "!android/local.properties",
+    "!ios/build",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
@@ -81,7 +85,7 @@
     "react-native-screens": "^4.7.0",
     "react-delegate-component": "^1.0.0",
 
-    "zego-zim-react-native": "^2.19.0"
+    "zego-zim-react-native": "^2.19.1"
   },
   "peerDependencies": {
     "@react-navigation/native": "*",
@@ -91,7 +95,7 @@
     "react-native": "*",
     "react-native-safe-area-context": "*",
     "react-native-screens": "*",
-    "zego-zim-react-native": "^2.19.0"
+    "zego-zim-react-native": "^2.19.1"
   },
   "engines": {
     "node": ">=18"

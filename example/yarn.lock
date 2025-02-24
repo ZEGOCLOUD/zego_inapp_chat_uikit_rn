@@ -6942,10 +6942,10 @@ zego-express-engine-reactnative@^3.19.0:
   resolved "https://registry.npmmirror.com/zego-express-engine-reactnative/-/zego-express-engine-reactnative-3.19.0.tgz#745ed917883387863f4bd87287b5a0f5915ae630"
   integrity sha512-tyxSiKexgQn+44FiBaJYDr+GkW4FJDEAB6rTBwKIkCWaakqggRQsoxjP07ezeXcnvyDqOWcqvFiT/X+xWZ8WMg==
 
-zego-zim-react-native@^2.19.0:
-  version "2.19.0"
-  resolved "https://registry.npmmirror.com/zego-zim-react-native/-/zego-zim-react-native-2.19.0.tgz#77b98d1069571c6c5ac46393c2851aca3d83b44b"
-  integrity sha512-xB3gaFdTh0X/OgkVIcRg/CpH6yV4ZLoZMGWFY2+fNpe/K9WmkcfaeyRMm7iWNGDldVxTP62cJu92Dbd5lG905A==
+zego-zim-react-native@^2.19.1:
+  version "2.19.1"
+  resolved "https://registry.npmmirror.com/zego-zim-react-native/-/zego-zim-react-native-2.19.1.tgz#903f610c188a32ebfdda2e0a47ef29e72dfc513d"
+  integrity sha512-nWV5+tM7tKYNA7NM8Pws3JwxcqKTKYwOyMf4T5tnDis5WkeCY0W6jvBd8DwahPn4TaNdgsjQ4FZqCRod4LaS9w==
 
 zego-zpns-react-native@^2.6.0:
   version "2.6.6"

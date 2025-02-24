@@ -1248,7 +1248,7 @@ PODS:
   - react-native-zego-express-engine (3.19.0):
     - React
     - ZegoExpressEngine (= 3.19.0)
-  - react-native-zego-zim (2.19.0):
+  - react-native-zego-zim (2.19.1):
     - React
     - ZIM (= 2.19.0)
   - react-native-zego-zpns (2.6.6):
@@ -1843,7 +1843,7 @@ SPEC CHECKSUMS:
   react-native-orientation-locker: cc6f357b289a2e0dd2210fea0c52cb8e0727fdaa
   react-native-safe-area-context: 3e33e7c43c8b74dba436a5a32651cb8d7064c740
   react-native-zego-express-engine: bd10f611ff65518aadafa8355f29c5e7f54f69ce
-  react-native-zego-zim: f52f1b0666bb5dfa89bfb81852ed8f7eb162497f
+  react-native-zego-zim: 5946331004939e4fb7488b955688abf8ce65631e
   react-native-zego-zpns: d488f5d1701e62fe1e858c598cbf31ac5fbd1574
   React-nativeconfig: 237c862aab56a7426301fcbbb8dd6988745231e0
   React-NativeModulesApple: 5b3c2bcfa3a53b22da441b35189e902ede27513d

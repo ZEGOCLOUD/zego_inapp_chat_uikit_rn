@@ -7271,7 +7271,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmmirror.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zego-zim-react-native@^2.19.0:
-  version "2.19.0"
-  resolved "https://registry.npmmirror.com/zego-zim-react-native/-/zego-zim-react-native-2.19.0.tgz#77b98d1069571c6c5ac46393c2851aca3d83b44b"
-  integrity sha512-xB3gaFdTh0X/OgkVIcRg/CpH6yV4ZLoZMGWFY2+fNpe/K9WmkcfaeyRMm7iWNGDldVxTP62cJu92Dbd5lG905A==
+zego-zim-react-native@^2.19.1:
+  version "2.19.1"
+  resolved "https://registry.npmmirror.com/zego-zim-react-native/-/zego-zim-react-native-2.19.1.tgz#903f610c188a32ebfdda2e0a47ef29e72dfc513d"
+  integrity sha512-nWV5+tM7tKYNA7NM8Pws3JwxcqKTKYwOyMf4T5tnDis5WkeCY0W6jvBd8DwahPn4TaNdgsjQ4FZqCRod4LaS9w==
