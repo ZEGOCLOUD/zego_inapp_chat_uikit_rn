@@ -1,6 +1,6 @@
 {
   "name": "@zegocloud/zimkit-rn",
-  "version": "2.1.6",
+  "version": "2.1.8",
   "description": "zimkit for rn",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -35,14 +35,18 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "bob build"
   },
   "keywords": [
     "react-native",
     "ios",
     "android"
   ],
-  "repository": "https://github.com/ZEGOCLOUD",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZEGOCLOUD"
+  },
   "author": "Kael Ding <415676243@qq.com> (https://github.com/kaelding)",
   "license": "MIT",
   "bugs": {
