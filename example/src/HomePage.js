@@ -30,7 +30,7 @@ export default function HomePage(props) {
   const navigation = useNavigation();
 
   const exit = () => {
-    navigation.navigate('LoginPage');
+    navigation.popTo('LoginPage');
     ZIMKit.disconnectUser();
   };
   const openMenu = () => {
