@@ -33,25 +33,25 @@
     "react-test-renderer": "19.1.0",
     "typescript": "5.0.4",
 
-    "react-delegate-component": "^1.0.0",
     "@react-navigation/native": "^7.1.17",
     "@react-navigation/native-stack": "^7.3.24",
     "react-native-safe-area-context": "^5.5.2",
     "react-native-screens": "^4.13.1",
 
     "@zegocloud/zimkit-rn": "link:../",
-    "@zegocloud/zego-uikit-prebuilt-call-rn": "^6.3.2",
-    "@zegocloud/zego-uikit-rn": "^2.17.2",
-    "zego-express-engine-reactnative": "^3.19.0",
-    "zego-zim-react-native": "^2.19.1",
-    "zego-zpns-react-native": "^2.6.0",
+    "@zegocloud/zego-uikit-prebuilt-call-rn": "^6.3.19",
+    "@zegocloud/zego-uikit-rn": "^2.17.12",
+    "zego-express-engine-reactnative": "^3.19.2",
+    "zego-zim-react-native": "^2.21.1",
+    "zego-zpns-react-native": "^2.8.1",
 
-    "@react-native-async-storage/async-storage": "^1.19.1",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "react-delegate-component": "^1.0.0",
     "react-native-device-info": "^11.1.0",
     "react-native-encrypted-storage": "^4.0.3",
     "react-native-keep-awake": "4.0.0",
     "react-native-orientation-locker": "^1.6.0",
-    "react-native-sound": "^0.11.2"
+    "react-native-sound": "git+https://github.com/ZEGOCLOUD/react-native-sound.git#v0.11.5"
   },
   "engines": {
     "node": ">=18"
