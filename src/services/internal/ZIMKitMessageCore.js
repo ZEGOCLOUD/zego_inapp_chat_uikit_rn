@@ -121,6 +121,7 @@ export default class ZIMKitMessageCore {
     const _this = this;
     const notification = {
       onMessageAttached: function (message) {
+        console.log('onMessageAttached', message);
         messageList && messageList.push(message);
         _this.messageListChangedCallback(
           conversationID,
@@ -140,9 +141,10 @@ export default class ZIMKitMessageCore {
       )
       .then(({ message }) => {
         console.log('send message success', message);
-        // let msg = messageList.filter(
-        //   (item) => item.messageID === message.messageID
-        // )[0];
+        let msg = messageList.filter(
+          (item) => item.localMessageID === message.localMessageID
+        )[0];
+        msg.sentStatus = message.sentStatus
         // msg = message;
       })
       .catch((err) => {

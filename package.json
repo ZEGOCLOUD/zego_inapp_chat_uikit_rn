@@ -1,6 +1,6 @@
 {
   "name": "@zegocloud/zimkit-rn",
-  "version": "2.2.0",
+  "version": "2.2.3",
   "description": "zimkit for rn",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
