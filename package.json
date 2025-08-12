@@ -1,6 +1,6 @@
 {
   "name": "@zegocloud/zimkit-rn",
-  "version": "2.2.3",
+  "version": "2.2.5",
   "description": "zimkit for rn",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -14,6 +14,7 @@
     "ios",
     "cpp",
     "*.podspec",
+    "!dev.py",
     "!lib/typescript/example",
     "!android/.editorconfig",
     "!android/.gradle",
@@ -25,6 +26,7 @@
     "!android/gradlew.bat",
     "!android/local.properties",
     "!ios/build",
+    "!example",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
@@ -57,10 +59,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "react": "18.3.1",
-    "react-native": "0.75.5"
   },
   "devDependencies": {
+    "react": "18.3.1",
+    "react-native": "0.75.5",
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
